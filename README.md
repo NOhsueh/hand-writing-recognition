@@ -1,5 +1,5 @@
 # hand-writing-recognition
-基于pytorch卷积神经网络的中文手写汉字识别，使用HWDB数据库
+CNN Pytorch Image_Classification HWDB
 ![hwdb](hwdb.jpg)
 
 ## Dependence
