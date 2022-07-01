@@ -53,20 +53,20 @@ def gnt_to_img(gnt_dir, img_dir):
 
 if __name__ == "__main__":
     # 路径
-    data_dir = r'./data'
-    train_gnt_dir = os.path.join(data_dir, 'HWDB1.1trn_gnt')
-    test_gnt_dir = os.path.join(data_dir, 'HWDB1.1tst_gnt')
-    train_img_dir = os.path.join(data_dir, 'train')
-    test_img_dir = os.path.join(data_dir, 'test')
-    if not os.path.exists(train_img_dir):
-        os.mkdir(train_img_dir)
-    if not os.path.exists(test_img_dir):
-        os.mkdir(test_img_dir)
+    data_dir = r'./data'  # 初始化数据集路径
+    train_gnt_dir = os.path.join(data_dir, 'HWDB1.1trn_gnt')  # 初始化训练数据路径
+    test_gnt_dir = os.path.join(data_dir, 'HWDB1.1tst_gnt')  # 初始化测试数据路径
+    train_img_dir = os.path.join(data_dir, 'train')  # 初始化将训练数据转换成标签和图像后存放的路径
+    test_img_dir = os.path.join(data_dir, 'test')  # 初始化将测试数据转换成标签和图像后存放的路径
+    if not os.path.exists(train_img_dir):  # 如果train_img_dir不存在
+        os.mkdir(train_img_dir)  # 创建train_img_dir
+    if not os.path.exists(test_img_dir):  # 如果test_img_dir不存在
+        os.mkdir(test_img_dir)  # 创建test_img_dir
 
     # 获取字符集合
-    if not os.path.exists('char_dict'):
-        char_set = set()
-        for _, tagcode in read_from_gnt_dir(gnt_dir=test_gnt_dir):
+    if not os.path.exists('char_dict'):  # 如果char_dict不存在
+        char_set = set()  # 定义char_set集合
+        for _, tagcode in read_from_gnt_dir(gnt_dir=test_gnt_dir):  # 读取tagcode
             tagcode_unicode = struct.pack('>H', tagcode).decode('gb18030')
             char_set.add(tagcode_unicode)
         char_list = list(char_set)
